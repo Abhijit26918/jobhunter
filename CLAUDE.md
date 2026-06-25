@@ -9,8 +9,12 @@ technical spec where they differ.
 - Don't use LangChain/LangGraph outside the tailoring step (`src/tailor.py`).
 - Never auto-submit applications. The human always reviews and clicks apply.
 - Drafts/tailoring must only use true facts from `cv.md` — never fabricate experience.
-- `.env`, `data/`, `.venv/`, `*.db` are gitignored — never commit personal data or keys.
+- `.env`, `data/`, `.venv/`, `*.db`, `cv.md`, `*.pdf` are gitignored — never commit
+  personal data or keys. `cv.example.md` is the public placeholder; real CVs stay local.
 
 ## Current state
-Phase 1 (MVP) in progress: `db.py`, `models.py`, `sources/base.py`, `sources/remoteok.py`,
-`profile.py`, `match.py`, `run.py`.
+Phase 1 (MVP) done. Phase 2 (coverage + tracking + UI) done: source adapters for
+remoteok/remotive/arbeitnow/jobicy (no key) + adzuna/greenhouse/lever/ashby
+(parametrized, disabled until keys/company lists are added), `src/ingest.py`,
+`src/tracker.py`, `app.py` (Streamlit Review + Pipeline tabs). Next: Phase 3 —
+`src/llm.py` + `src/tailor.py` (LangGraph tailoring agent).

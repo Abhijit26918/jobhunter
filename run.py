@@ -4,33 +4,13 @@ from __future__ import annotations
 
 import sys
 
+from dotenv import load_dotenv
+
 from src import db
+from src.ingest import run_ingest
 from src.profile import load_profile
-from src.sources.remoteok import RemoteOK
 
-SOURCE_REGISTRY = {
-    "remoteok": RemoteOK,
-}
-
-
-def run_ingest(conn, config: dict) -> int:
-    new_count = 0
-    sources_cfg = config.get("sources", {})
-    for name, cls in SOURCE_REGISTRY.items():
-        if not sources_cfg.get(name, {}).get("enabled"):
-            continue
-        try:
-            jobs = cls().fetch()
-        except Exception as exc:
-            print(f"[{name}] fetch failed: {exc}")
-            continue
-        added = 0
-        for job in jobs:
-            if db.upsert_job(conn, job) is not None:
-                added += 1
-        print(f"[{name}] fetched {len(jobs)}, added {added} new")
-        new_count += added
-    return new_count
+load_dotenv()
 
 
 def run_match(conn, profile) -> None:

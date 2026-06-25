@@ -26,5 +26,5 @@ B.Tech, Computer Science — Example University (2022)
 - **Anomaly detection for transactions** — isolation forest, deployed as a batch job.
 
 ---
-*Replace this file with your own CV in plain markdown. This is a placeholder template —
-do not commit your real CV with personal details to a public repo.*
+*Copy this file to `cv.md` and replace it with your own CV in plain markdown.
+`cv.md` is gitignored — your real CV never gets committed to this (public) repo.*

@@ -11,13 +11,13 @@ search:
 
 sources:
   remoteok:   { enabled: true }
-  remotive:   { enabled: false }
-  arbeitnow:  { enabled: false }
-  jobicy:     { enabled: false, tag: data-science }
-  adzuna:     { enabled: false, queries: ["data scientist", "data science intern", "fraud analyst"] }
-  greenhouse: { enabled: false, boards: [stripe, ramp, plaid, brex] }
-  lever:      { enabled: false, companies: [] }
-  ashby:      { enabled: false, orgs: [] }
+  remotive:   { enabled: true }
+  arbeitnow:  { enabled: true }
+  jobicy:     { enabled: true, tag: data }
+  adzuna:     { enabled: false, queries: ["machine learning", "data scientist intern", "ml intern"] }  # add ADZUNA_APP_ID/APP_KEY to .env, then set enabled: true
+  greenhouse: { enabled: false, boards: [] }   # add company board slugs to enable, e.g. [stripe, ramp]
+  lever:      { enabled: false, companies: [] } # add company slugs to enable
+  ashby:      { enabled: false, orgs: [] }       # add org slugs to enable
   hackernews: { enabled: false }
 
 match:
