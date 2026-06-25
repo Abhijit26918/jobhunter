@@ -1,0 +1,29 @@
+profile:
+  cv_path: cv.md
+
+search:
+  must_have: [data, machine learning, ml, python, analyst]   # >=1 must appear
+  nice_to_have: [fraud, risk, fintech, sql, pytorch, intern, anomaly, credit, model]
+  exclude: [senior, staff, principal, lead, manager, "5+ years", "7+ years", clearance]
+  remote_only: true
+  max_age_days: 30
+  countries: [in, gb, us, remote]
+
+sources:
+  remoteok:   { enabled: true }
+  remotive:   { enabled: false }
+  arbeitnow:  { enabled: false }
+  jobicy:     { enabled: false, tag: data-science }
+  adzuna:     { enabled: false, queries: ["data scientist", "data science intern", "fraud analyst"] }
+  greenhouse: { enabled: false, boards: [stripe, ramp, plaid, brex] }
+  lever:      { enabled: false, companies: [] }
+  ashby:      { enabled: false, orgs: [] }
+  hackernews: { enabled: false }
+
+match:
+  top_n_display: 15
+  daily_llm_budget: 8
+
+tailor:
+  max_revisions: 1
+  min_acceptable_score: 7
